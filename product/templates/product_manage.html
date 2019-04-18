@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <title>产品自动化测试平台</title>
+</head>
+<body rele="document">
+<!-- 导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </div>
+  </div>
+</nav>
+
+<!--产品列表-->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID编号</th>
+      <th scope="col">产品名称</th>
+      <th scope="col">产品描述</th>
+      <th scope="col">产品负责人</th>
+        <th scope="col">创建时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+        <tr>
+           <td>{{ product.id }}</td>
+           <td>{{ product.productname }}</td>
+           <td>{{ product.productdesc }}</td>
+           <td>{{ product.producter }}</td>
+           <td>{{ product.create_time }}</td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>
