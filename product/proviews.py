@@ -7,8 +7,7 @@ from django.shortcuts import render
 import product
 from product.models import Product
 
-
 def product_manage (request):
     uesrname = request.session.get('user', '')
     product_list = Product.objects.all()
-    return render(request, "product_manage.html",{"user":uesrname, "products":product_list})
+    return render(request, "product_manage.html", {"user":uesrname, "products":product_list})

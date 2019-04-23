@@ -23,30 +23,10 @@
     </div>
   </div>
 </nav>
-
-<!--产品列表-->
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID编号</th>
-      <th scope="col">产品名称</th>
-      <th scope="col">产品描述</th>
-      <th scope="col">产品负责人</th>
-        <th scope="col">创建时间</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for product in products %}
-        <tr>
-           <td>{{ product.id }}</td>
-           <td>{{ product.productname }}</td>
-           <td>{{ product.productdesc }}</td>
-           <td>{{ product.producter }}</td>
-           <td>{{ product.create_time }}</td>
-        </tr>
-    {% endfor %}
-  </tbody>
-</table>
-
+<div class="layout-right">
+    {% block mainbody %}
+        这里是首页
+    {% endblock %}
+</div>
 </body>
 </html>
