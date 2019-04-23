@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from apitest import views
 from product import proviews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^product_manage/', proviews.product_manage),
+    url(r'^apistep_manage/', views.apistep_manage),
+    url(r'^apitest_manage/', views.apitest_manage),
+    url(r'^apis_manage/', views.apis_manage),
 ]

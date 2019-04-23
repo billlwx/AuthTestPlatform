@@ -1,0 +1,43 @@
+{% extends "./base_template.html" %}
+
+{% block mainbody %}
+<body rele="document">
+<!--流程接口测试步骤-->
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">所属产品</th>
+        <th scope="col">所属用例</th>
+        <th scope="col">步骤</th>
+        <th scope="col">地址</th>
+        <th scope="col">参数值</th>
+        <th scope="col">方法</th>
+        <th scope="col">逾期结果</th>
+        <th scope="col">测试结果</th>
+        <th scope="col">执行时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for apistep in apisteps %}
+        <tr>
+            <td>{{ apistep.Apitest.Product.productname }}</td>
+            <td>case{{ apistep.Apitest.id }}:{{ apistep.Apitest.name }}</td>
+            <td>{{ apistep.apiurl }}:{{ apistep.apiname }}</td>
+            <td>{{ apistep.apiurl }}</td>
+            <td>{{ apistep.apiparamvalue }}</td>
+        <td>{{ apistep.apimethod }}</td>
+        <td>{{ apistep.apiresult }}</td>
+        <td>{% if apistep.apistatus == 1 %}
+           <a style="color: lawngreen">{{ apistep.apistatus }}</a>
+            {% else %}
+            <a style="color: red">{{ apistep.apistatus }}</a>
+        {% endif %}
+        </td>
+        <td>{{ apistep.create_time }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+{% endblock %}
