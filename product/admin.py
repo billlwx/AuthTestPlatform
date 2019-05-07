@@ -8,16 +8,30 @@ from apitest.models import Apis
 from product.models import Product
 
 
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ['productname', 'productdesc', 'producter', 'create_time', 'id']
-    admin.site.register(Product)
-    # inlines = [ApisAdmin]
+# class ProductAdmin(admin.ModelAdmin):
+#     list_display = ['productname', 'productdesc', 'producter', 'create_time', 'id']
+#     admin.site.register(Product)
+#     # inlines = [ApisAdmin]
+#
+# class ApisAdmin(admin.TabularInline):
+#     list_display = ['apiname', 'apiurl', 'apiparamvalue', 'apiresult', 'apiresult', 'create_time', 'id', 'product']
+#     model = Apis
+#     extra = 1
+#
+# class ProductAdmin(admin.ModelAdmin):
+#     list_display = ['productname', 'productdesc', 'create_time', 'id']
+#     inlines = [ApisAdmin]
 
 class ApisAdmin(admin.TabularInline):
-    list_display = ['apiname', 'apiurl', 'apiparamvalue', 'apiresult', 'apiresult', 'create_time', 'id', 'product']
+    list_display = ['apiname','apiurl','apiparamvalue','apimethod','apiresult','apistatus','create_time','id','product']
     model = Apis
     extra = 1
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['productname', 'productdesc', 'create_time', 'id']
+    list_display = ['productname', 'productdesc','create_time','id']
     inlines = [ApisAdmin]
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['productname', 'productdesc','producter','create_time','id']   #后台显示产品模块
+
+admin.site.register(Product,ProductAdmin)
