@@ -3,6 +3,7 @@
 # __author__ = 'bill'
 # create on 2019/4/23
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -15,7 +16,7 @@ def login(request):
         if user is not None and user.is_active:
             auth.login(request, user)
             request.session['user'] = userid
-            response = HttpResponseRedirect('/apis_manage/')
+            response = HttpResponseRedirect('/home/')
             return response
         else:
             return render(request, 'login.html', {'error':'userid or password error'})
@@ -24,4 +25,8 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return render(request,'login.html')
+    return render(request, 'login.html')
+
+@login_required
+def home(request):
+    return render(request, 'base_template.html')

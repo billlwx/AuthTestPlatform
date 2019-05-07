@@ -22,9 +22,11 @@ from product import proviews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^home/', loginview.home),
     url(r'^product_manage/', proviews.product_manage),
     url(r'^apistep_manage/', views.apistep_manage),
     url(r'^apitest_manage/', views.apitest_manage),
     url(r'^apis_manage/', views.apis_manage),
     url(r'^login/', loginview.login),
+    url(r'^logout/', loginview.logout),
 ]
