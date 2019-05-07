@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from AuthTestPlatform import loginview
 from apitest import views
 from product import proviews
 
@@ -25,4 +26,5 @@ urlpatterns = [
     url(r'^apistep_manage/', views.apistep_manage),
     url(r'^apitest_manage/', views.apitest_manage),
     url(r'^apis_manage/', views.apis_manage),
+    url(r'^login/', loginview.login),
 ]
