@@ -19,6 +19,7 @@ from django.contrib import admin
 from AuthTestPlatform import loginview
 from apitest import views
 from product import proviews
+from set import setviews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -29,4 +30,5 @@ urlpatterns = [
     url(r'^apis_manage/', views.apis_manage),
     url(r'^login/', loginview.login),
     url(r'^logout/', loginview.logout),
+    url(r'^set_manage/', setviews.set_user),
 ]

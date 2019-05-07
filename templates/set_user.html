@@ -1,0 +1,32 @@
+{% extends "./base_template.html" %}
+
+{% block mainbody %}
+<body rele="document">
+<!--接口流程列表-->
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">用户名</th>
+        <th scope="col">密码</th>
+        <th scope="col">邮箱</th>
+        <th scope="col">最近登录日期</th>
+        <th scope="col">注册日期</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.last_login }}</td>
+        <td>{{ user.date_joined }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+{% endblock %}
