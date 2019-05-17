@@ -1,0 +1,41 @@
+{% extends "./base_template.html" %}
+
+{% block mainbody %}
+    <body>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">所属产品</th>
+            <th scope="col">所属用例</th>
+            <th scope="col">步骤</th>
+            <th scope="col">定位方式</th>
+            <th scope="col">控件元素</th>
+            <th scope="col">操作方法</th>
+            <th scope="col">测试数据</th>
+            <th scope="col">验证数据</th>
+            <th scope="col">测试结果</th>
+            <th scope="col">时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for webcasestep in webcasesteps %}
+            <tr>
+{#                {% if webcasestep.Webcase.id == webcase.id %}#}
+                    <td>{{ webcasestep.Webcase.Product.productname }}</td>
+                    <td>case_{{ webcasestep.Webcase.id }}_{{ webcasestep.Webcase.webcasename }}</td>
+                    <td>{{ webcasestep.webteststep }}:{{ webcasestep.webtestobjname }}</td>
+                    <td>{{ webcasestep.webfindmethod }}</td>
+                    <td>{{ webcasestep.webevelement }}</td>
+                    <td>{{ webcasestep.weboptmethod }}</td>
+                    <td>{{ webcasestep.webtestdata }}</td>
+                    <td>{{ webcasestep.webassertdata }}</td>
+                    <td>{{ webcasestep.webtestresult }}</td>
+                    <td>{{ webcasestep.create_time }}</td>
+{#                {% else %}#}
+{#                {% endif %}#}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </body>
+{% endblock %}

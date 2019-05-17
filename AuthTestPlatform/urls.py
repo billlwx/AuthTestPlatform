@@ -20,6 +20,7 @@ from AuthTestPlatform import loginview
 from apitest import views
 from product import proviews
 from set import setviews
+from webtest import webviews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,4 +32,6 @@ urlpatterns = [
     url(r'^login/', loginview.login),
     url(r'^logout/', loginview.logout),
     url(r'^set_manage/', setviews.set_user),
+    url(r'webcase_manage/', webviews.webcase_manage),
+    url(r'webcasestep_manage/', webviews.webcasestep_manage),
 ]
