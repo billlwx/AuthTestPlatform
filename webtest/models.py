@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.test import TestCase
+from django.db import models
 
-# Create your tests here.
-from product import models
-
-
+# Create your models here.
 class Webcase(models.Model):
     Product = models.ForeignKey('product.Product', on_delete=models.CASCADE, null=True)  # 关联产品id
     webcasename = models.CharField('用例名称', max_length=200)  # 测试用例名称
