@@ -25,6 +25,6 @@ def webcasestep_manage(request):
     # webcaseid = request.GET.get('webcase.id', None)
     # webcase = Webcase.objects.get(id=webcaseid)
     webcasestep_list = Webcasestep.objects.all()
-    print webcasestep_list
+    # print webcasestep_list
     return render(request, "webcasestep_manage.html",
                   {"user": username,  "webcasesteps": webcasestep_list})
